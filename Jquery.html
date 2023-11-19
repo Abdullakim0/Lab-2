@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Lists</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h2>Tasks to Perform</h2>
+        <ul id="tasksToPerform">
+            <li>Task 1</li>
+            <li>Task 2</li>
+            <li>Task 3</li>
+        </ul>
+        <button id="showTasks">Show List</button>
+        <button id="hideTasks" class="hidden">Hide List</button>
+    </div>
+
+    <div>
+        <h2>Completed Tasks</h2>
+        <ul id="completedTasks" class="hidden">
+            <li>Completed Task 1</li>
+            <li>Completed Task 2</li>
+            <li>Completed Task 3</li>
+        </ul>
+        <button id="showCompletedTasks">Show List</button>
+        <button id="hideCompletedTasks" class="hidden">Hide List</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Show/Hide tasks to perform
+            $("#showTasks").click(function() {
+                $("#tasksToPerform").show();
+                $("#showTasks").addClass("hidden");
+                $("#hideTasks").removeClass("hidden");
+            });
+
+            $("#hideTasks").click(function() {
+                $("#tasksToPerform").hide();
+                $("#hideTasks").addClass("hidden");
+                $("#showTasks").removeClass("hidden");
+            });
+
+            // Show/Hide completed tasks
+            $("#showCompletedTasks").click(function() {
+                $("#completedTasks").show();
+                $("#showCompletedTasks").addClass("hidden");
+                $("#hideCompletedTasks").removeClass("hidden");
+            });
+
+            $("#hideCompletedTasks").click(function() {
+                $("#completedTasks").hide();
+                $("#hideCompletedTasks").addClass("hidden");
+                $("#showCompletedTasks").removeClass("hidden");
+            });
+        });
+    </script>
+
+</body>
+</html>
