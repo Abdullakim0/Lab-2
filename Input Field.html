@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Press Event</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+    <label for="messageInput">Enter Message:</label>
+    <input type="text" id="messageInput">
+
+    <div id="output"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#messageInput').keypress(function(e) {
+                // Get the key code
+                var key = e.which;
+
+                // Check if Ctrl key is pressed and semicolon key is pressed
+                if (e.ctrlKey && key === 59) { // 59 is the character code for semicolon
+                    // Clear the input field
+                    $('#messageInput').val('');
+                    // Clear the output div
+                    $('#output').text('');
+                } else {
+                    // Display the typed character in the output div
+                    $('#output').text($('#output').text() + String.fromCharCode(key));
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
