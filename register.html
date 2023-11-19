@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form id="registrationForm">
+        <div>
+            <label for="regulationsCheckbox">Accept the store regulations:</label>
+            <input type="checkbox" id="regulationsCheckbox">
+        </div>
+
+        <div>
+            <label for="termsCheckbox">Accept the terms of use:</label>
+            <input type="checkbox" id="termsCheckbox">
+        </div>
+
+        <button id="registerButton" disabled>Register</button>
+    </form>
+
+    <div id="confirmationMessage" style="display: none;">
+        <p>Registration successful! Thank you for accepting the regulations and terms of use.</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Change event for checkboxes
+            $("input[type='checkbox']").change(function() {
+                // Check if both checkboxes are selected
+                if ($("#regulationsCheckbox").prop("checked") && $("#termsCheckbox").prop("checked")) {
+                    // Enable the Register button
+                    $("#registerButton").prop("disabled", false);
+                } else {
+                    // Disable the Register button
+                    $("#registerButton").prop("disabled", true);
+                }
+            });
+
+            // Click event for Register button
+            $("#registerButton").click(function(event) {
+                event.preventDefault(); // Prevent the form from submitting
+
+                // Display confirmation message
+                $("#confirmationMessage").show();
+            });
+        });
+    </script>
+
+</body>
+</html>
+
